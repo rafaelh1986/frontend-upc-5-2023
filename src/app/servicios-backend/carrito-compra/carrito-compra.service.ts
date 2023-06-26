@@ -21,7 +21,7 @@ export class CarritoCompraService {
   public GetCarritoCompra(): Observable<HttpResponse<any>> {
 
       return this.http
-          .get<any>(this.URL_GET_CARRITOCOMPRA,
+          .get<any>("https://localhost:7127/api/CarritoCompra",
               { observe: 'response' })
           .pipe();
   }

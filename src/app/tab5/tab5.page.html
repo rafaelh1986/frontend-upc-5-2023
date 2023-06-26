@@ -6,8 +6,7 @@
 
 <ion-content padding>
   <ion-item>
-      <ion-input type="text" hidden [(ngModel)]="idCarritoCompra"></ion-input>
-      <ion-input type="text" placeholder="Ingrese idUsuarios" [(ngModel)]="idUsuarios"></ion-input>
+      <ion-input type="text" placeholder="Ingrese id Usuarios" [(ngModel)]="idUsuarios"></ion-input>
 
       <div class="item-note" item-end>
         <ion-button *ngIf="!swGuardarCambios" (click)="addCarritoCompra()">Agregar Carrito Compra</ion-button>
@@ -16,7 +15,9 @@
   <div padding>
       <ion-list>
           <ion-item *ngFor="let item of listCarritoCompra">
-              {{item.idUsuarios}}
+            {{item.id}}  
+            {{item.idUsuario}}
+              {{item.fecha}}
               <div class="item-note" slot="end">
                   
               </div>

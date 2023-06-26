@@ -8,9 +8,9 @@
 
 <ion-content padding>
   <ion-item>
-      <ion-input type="text" placeholder="Ingrese nombreCompleto" [(ngModel)]="nombreCompleto"></ion-input>
-      <ion-input type="text" placeholder="Ingrese userName" [(ngModel)]="userName"></ion-input>
-      <ion-input type="text" placeholder="Ingrese password" [(ngModel)]="password"></ion-input>
+      <ion-input id="nombreCompleto" type="text" placeholder="Ingrese nombreCompleto" [(ngModel)]="nombreCompleto"></ion-input>
+      <ion-input id="userName" type="text" placeholder="Ingrese userName" [(ngModel)]="userName"></ion-input>
+      <ion-input id="password" type="text" placeholder="Ingrese password" [(ngModel)]="password"></ion-input>
       <div class="item-note" item-end>
           <ion-button (click)="addUsuario()">Agregar Usuario</ion-button>
       </div>
