@@ -12,7 +12,7 @@
         <ion-input id="nombreCategoria" type="text" placeholder="Ingrese Categoria" [(ngModel)]="nombreCategoria"></ion-input>
         <div class="item-note" item-end>
             <ion-button id= "agregarCategoria" *ngIf="!swGuardarCambios" (click)="addCategoria()">Agregar Categoria</ion-button>
-            <ion-button id="guardarCategoria" *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
+            <ion-button id="guardarCambios" *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
         </div>
     </ion-item>
     <div padding>
