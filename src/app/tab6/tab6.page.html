@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Alumno</ion-title>
+    <ion-title>
+      CRUD Alumno
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-item>
+    <ion-input id="idAlumno" type="text" hidden [(ngModel)]="idAlumno"></ion-input>
+    <ion-input id="nombreCompleto" type="text" placeholder="Ingrese Nombre" [(ngModel)]="nombreCompleto"></ion-input>
+    <ion-input id="curso" type="text" placeholder="Ingrese Curso" [(ngModel)]="curso"></ion-input>
+    <ion-input id="gestion" type="text" placeholder="Ingrese Gestión" [(ngModel)]="gestion"></ion-input>
 
+    <div class="item-note" item-end>
+        <ion-button id= "agregarAlumno" *ngIf="!swGuardarCambios" (click)="addAlumno()">Agregar Alumno</ion-button>
+        <ion-button id="guardarCambios" *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
+    </div>
+</ion-item>
+<div padding>
+  <ion-list>
+      <ion-item *ngFor="let item of listAlumno">
+          {{item.id}} - {{item.nombreCompleto}} - {{item.curso}} - {{item.gestion}}
+          <div class="item-note" slot="end">
+              <ion-button id="updateAlumno" color="warning" (click)="updateAlumno(item)">Editar</ion-button>
+              <ion-button id="deleteAlumno" color="danger" (click)="deleteAlumno(item)">Eliminar</ion-button>
+          </div>
+      </ion-item>
+  </ion-list>
+</div>
 </ion-content>
