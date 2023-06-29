@@ -70,9 +70,9 @@ export class Tab6Page {
 
     public guardarCambios(){
         this.swGuardarCambios = false;
-        if (this.nombreCompleto.length > 0 && this.curso.length > 0 && this.gestion.length > 0) {
+        if (this.nombreCompleto.length > 0) {
             var entidad = {
-                idAlumno: this.idAlumno,
+                id: this.idAlumno,
                 nombreCompleto : this.nombreCompleto,
                 curso : this.curso,
                 gestion : this.gestion
@@ -105,7 +105,7 @@ export class Tab6Page {
     public updateAlumno(item){
         console.log(item)
         this.idAlumno = item.id
-        this.nombreCompleto = item.nombreCompeto
+        this.nombreCompleto = item.nombreCompleto
         this.curso = item.curso
         this.gestion = item.gestion
         this.swGuardarCambios = true;
