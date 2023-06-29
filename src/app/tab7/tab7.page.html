@@ -4,6 +4,30 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  <ion-item>
+      <ion-input id="idPago" type="text" hidden [(ngModel)]="idPago"></ion-input>
+      <ion-input id="monto" type="text" placeholder="Ingrese Monto" [(ngModel)]="monto"></ion-input>
+      <ion-input id="idAlumnoPago" type="text" placeholder="Ingrese ID Alumno" [(ngModel)]="idAlumno"></ion-input>
+      <div class="item-note" item-end>
+          <ion-button id="addPago" *ngIf="!swGuardarCambios" (click)="addPago()">Agregar Pago</ion-button>
+          <ion-button id="guardarCambios" *ngIf="swGuardarCambios" color="warning" (click)="guardarCambios()">Guardar Cambios</ion-button>
+      </div>
+  </ion-item>
+  <div padding>
+      <ion-list>
+          <ion-grid [fixed]="true" *ngFor="let item of listPago">
+            <ion-row>
+              <ion-col>{{item.id}}</ion-col>
+              <ion-col>{{item.alumno.nombreCompleto}} </ion-col>
+              <ion-col>{{item.monto}} Bs.</ion-col>
+              <ion-col>{{item.fecha}}</ion-col>
+              <ion-col >
+                  <ion-button id="updatePago" color="warning" (click)="updatePago(item)" size="small">Editar</ion-button>
+                  <ion-button id="deletePago" color="danger" (click)="deletePago(item)" size="small">Eliminar</ion-button>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+      </ion-list>
+  </div>
 </ion-content>

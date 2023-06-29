@@ -20,13 +20,18 @@
 </ion-item>
 <div padding>
   <ion-list>
-      <ion-item *ngFor="let item of listAlumno">
-          {{item.id}} - {{item.nombreCompleto}} - {{item.curso}} - {{item.gestion}}
-          <div class="item-note" slot="end">
-              <ion-button id="updateAlumno" color="warning" (click)="updateAlumno(item)">Editar</ion-button>
-              <ion-button id="deleteAlumno" color="danger" (click)="deleteAlumno(item)">Eliminar</ion-button>
-          </div>
-      </ion-item>
+    <ion-grid [fixed]="true" *ngFor="let item of listAlumno">
+      <ion-row>
+        <ion-col>{{item.id}}</ion-col>
+        <ion-col>{{item.nombreCompleto}}</ion-col>
+        <ion-col>{{item.curso}}</ion-col>
+        <ion-col>{{item.gestion}}</ion-col>
+        <ion-col >
+          <ion-button id="updateAlumno" color="warning" (click)="updateAlumno(item)" size="small">Editar</ion-button>
+          <ion-button id="deleteAlumno" color="danger" (click)="deleteAlumno(item)" size="small">Eliminar</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-list>
 </div>
 </ion-content>
