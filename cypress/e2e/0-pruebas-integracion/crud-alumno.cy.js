@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('CRUD Categorias', () => {
+describe('CRUD Alumnos', () => {
 
     //Antes que nada abrir el navegador en el proyecto Frontend que es el puerto 8100
     beforeEach(() => {
@@ -8,37 +8,47 @@ describe('CRUD Categorias', () => {
             //cy.visit('http://localhost:8200')//Frontend de Test
     })
 
-    //Servicio API - GetCategoria()
-    it('GetCategoria()', () => {
+    //Servicio API - GetAlumno()
+    it('GetAlumno()', () => {
         cy.wait(1000);
         //cy.get('ion-tab-button').should('be.not.visible');
-        cy.get('ion-tab-button').eq(0).click(); // click en el TAB de Categoria
+        cy.get('ion-tab-button').eq(5).click(); // click en el TAB de Alumno
         cy.wait(1000);
         cy.get('ion-item').should('be.visible').should('not.have.length', '0'); //Verifica que exista un ion-item
     });
 
-    //Servicio API - AddCategoria(entidad)
-    it('AddCategoria(entidad)', () => {
+    //Servicio API - AddAlumno(entidad)
+    it('AddAlumno(entidad)', () => {
+        cy.get('ion-tab-button').eq(5).click(); // click en el TAB de Alumno
         cy.wait(1000);
-        cy.get('#nombreCategoria').type('insertar NOMBRE cypress', { delay: 100 }).should('have.value', 'insertar categoria cypress');
+        cy.get('#nombreCompleto').type('Jorge Fernandez', { delay: 100 })
+        .should('have.value', 'Jorge Fernandez');
         cy.wait(500);
-        cy.get('#agregarCategoria').not('[disabled]').click();
+        cy.get('#curso').type('3ero A', { delay: 100 })
+        .should('have.value', '3ero A');
+        cy.wait(500);
+        cy.get('#gestion').type('2023', { delay: 100 })
+        .should('have.value', '2023');
+        cy.get('#agregarAlumno').not('[disabled]').click();
     });
 
-    //Servicio API - UpdateCategoria(entidad)
-    it('UpdateCategoria(entidad)', () => {
+    //Servicio API - UpdateAlumno(entidad)
+    it('UpdateAlumno(entidad)', () => {
+        cy.get('ion-tab-button').eq(5).click(); // click en el TAB de Alumno
         cy.wait(1000);
-        cy.get('#updateCategoria').eq(0).click(); //Click al boton de Editar una categoria
+        cy.get('#updateAlumno').eq(0).click(); //Click al boton de Editar una alumno
         cy.wait(1000);
-        cy.get('#nombreCategoria').invoke('val', ''); //Vaciar el campo del textfield de nombreCategoria
-        cy.get('#nombreCategoria').type('update NOMBRE Cypress', { delay: 100 }); //Escribir "UPDATE Cypress en el textfield de nombreCategoria"
+        cy.get('#nombreCompleto').invoke('val', ''); //Vaciar el campo del textfield de Alumno
+        cy.get('#nombreCompleto').type('update NOMBRE Cypress', { delay: 100 }); //Escribir "UPDATE Cypress en el textfield de nombreCompleto"
         cy.wait(500);
         cy.get('#guardarCambios').not('[disabled]').click(); //Click en guardar cambios
     });
 
-    //Servicio API - DeleteCategoria(id)
-    it('DeleteCategoria(id)', () => {
+    //Servicio API - DeletePago(id)
+    it('DeleteAlumno(id)', () => {
+        cy.get('ion-tab-button').eq(5).click(); // click en el TAB de alumno
         cy.wait(1000);
-        cy.get('#deleteCategoria').eq(0).click(); //Click al boton de Eliminar una categoria
+        cy.get('#deleteAlumno').eq(0).click(); //Click al boton de Eliminar un alumno
     });
+    
 });
