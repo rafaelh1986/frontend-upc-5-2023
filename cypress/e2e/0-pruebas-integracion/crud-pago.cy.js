@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 
-describe('CRUD Alumnos', () => {
+describe('CRUD Pago', () => {
 
     //Antes que nada abrir el navegador en el proyecto Frontend que es el puerto 8100
     beforeEach(() => {
@@ -49,5 +49,5 @@ describe('CRUD Alumnos', () => {
         cy.wait(1000);
         cy.get('#deletePago').eq(0).click(); //Click al boton de Eliminar una pago
     });
-    */
+
 });
